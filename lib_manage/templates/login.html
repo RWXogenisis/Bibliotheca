@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <title>Web Design Mastery | Login</title>
+</head>
+<body>
+    <div class="container">
+        <form action="{{ url_for('login') }}" method="POST" class="login__form">
+            <h1>Login</h1>
+            <div class="input__row">
+                <span><i class="ri-user-3-line"></i></span>
+                <div class="input__group">
+                    <input type="text" name="username" placeholder=" " required />
+                    <label for="username">Username</label>
+                </div>
+            </div>
+            <div class="input__row">
+                <span><i class="ri-lock-2-line"></i></span>
+                <div class="input__group">
+                    <input id="password" name="password" type="password" placeholder=" " required />
+                    <label for="password">Password</label>
+                </div>
+                <span id="password-eye"><i class="ri-eye-off-line"></i></span>
+            </div>
+            <div class="action__btns">
+                <a href="{{ url_for('forgot_password') }}" class="forgot__password">Forgot Password?</a>
+            </div>
+            <button type="submit" class="login__btn">Login</button>
+            <div class="register">
+                Don't have an account? <a href="#">Register</a>
+            </div>
+        </form>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</body>
+</html>

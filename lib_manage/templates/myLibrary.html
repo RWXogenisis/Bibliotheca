@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/myLibrary.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li><span class="material-icons">explore</span><a href="{{ url_for('dashboard') }}">Discover</a></li>
+                <li><span class="material-icons">library_books</span><a href="{{ url_for('myLibrary') }}" style="color: inherit; text-decoration: none;">My Library</a></li>
+                <li><span class="material-icons">download</span><a href="{{ url_for('downloads') }}">Download</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <h2>{{ user['username'] }}'s Library</h2>
+
+           <!-- Fines Section -->
+            <div class="fines-section">
+                <h3>Your Fines</h3>
+                <table border="1" cellpadding="10" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Book ID</th>
+                            <th>Fine Amount ($)</th>
+                            <th>Payment Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for fine in fines %}
+                        <tr>
+                            <td>{{ fine['BookID'] }}</td>
+                            <td>{{ fine['FineAmount'] }}</td>
+                            <td>{{ fine['PaymentStatus'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!-- Issued Books Section -->
+            <div class="issued-books-section">
+                <h3>Books Issued</h3>
+                <table border="1" cellpadding="10" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Book ID</th>
+                            <th>Issue Date</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for book in issued_books %}
+                        <tr>
+                            <td>{{ book['BookID'] }}</td>
+                            <td>{{ book['IssueDate'] }}</td>
+                            <td>{{ book['DueDate'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+
+            <!-- Requests Section -->
+            <div class="requests-section">
+                <h3>Requested Books</h3>
+                <table border="1" cellpadding="10" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Book ID</th>
+                            <th>Request Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for request in requests %}
+                        <tr>
+                            <td>{{ request['BookID'] }}</td>
+                            <td>{{ request['RequestDate'] }}</td>
+                            <td>{{ request['Status'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+
+
+                <!-- Request Form -->
+                <form action="{{ url_for('make_request') }}" method="POST">
+                    <label for="bookID">Book Serial Number:</label>
+                    <input type="text" id="bookID" name="bookID" placeholder="Enter Book Serial Number">
+                    <button type="submit">Request</button>
+                </form>
+            </div>
+
+           <!-- Reservations Section -->
+            <div class="reservations-section">
+                <h3>Your Reservations</h3>
+                <table border="1" cellpadding="10" cellspacing="0">
+                    <thead>
+                        <tr>
+                            <th>Book ID</th>
+                            <th>Reservation Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for reservation in reservations %}
+                        <tr>
+                            <td>{{ reservation['BookID'] }}</td>
+                            <td>{{ reservation['ReservationDate'] }}</td>
+                            <td>{{ reservation['Status'] }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <!-- Reservation Form -->
+                <h3>Make a Reservation</h3>
+                <form action="{{ url_for('make_reservation') }}" method="POST">
+                    <label for="bookID">Book Serial Number:</label>
+                    <input type="text" id="bookID" name="bookID" placeholder="Enter Book Serial Number" required>
+                    <button type="submit">Reserve</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/myLibrary.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Downloads</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <ul>
+                <li><span class="material-icons">explore</span><a href="{{ url_for('dashboard') }}">Discover</a></li>
+                <li><span class="material-icons">library_books</span><a href="{{ url_for('myLibrary') }}" style="color: inherit; text-decoration: none;">My Library</a></li>
+                <li><span class="material-icons">download</span><a href="{{ url_for('downloads') }}">Download</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" style="background-color: transparent;">
+            <div class="background" style="z-index: -10;"> <!-- Background layer for the curved rectangles -->
+                <h2>Book Downloads</h2>
+
+                <!-- Profile Dropdown -->
+                <div class="action">
+                    <div class="profile" onclick="menuToggle();">
+                        <img src="{{ url_for('static', filename='images/user.jpeg') }}" alt="Profile" />
+                    </div>
+                    <div class="menu">
+                        <h3>{{user["username"]}}<br /><span>{{member}}</span></h3>
+                        <ul>
+                            <li>
+                                <i class="material-icons">person</i><a href="#">My profile</a>
+                            </li>
+                            <li>
+                                <i class="material-icons">logout</i><a href="{{ url_for('logout') }}">Logout</a>
+                            </li>                            
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="book-list">
+                    <div class="book-card" onclick="showDetails('The Psychology of Money', 'Morgan Housel', '{{ url_for('static', filename='images/psychology.jpg') }}')">
+                        <img src="{{ url_for('static', filename='images/psychology.jpg') }}" alt="The Psychology of Money">
+                        <p>The Psychology of Money</p>
+                    </div>
+                    <div class="book-card" onclick="showDetails('How Innovation Works', 'Matt Ridley', '{{ url_for('static', filename='images/innovation.jpg') }}')">
+                        <img src="{{ url_for('static', filename='images/innovation.jpg') }}" alt="How Innovation Works">
+                        <p>How Innovation Works</p>
+                    </div>
+                    <div class="book-card" onclick="showDetails('Company of One', 'Paul Jarvis', '{{ url_for('static', filename='images/company.jpg') }}')">
+                        <img src="{{ url_for('static', filename='images/company.jpg') }}" alt="Company of One">
+                        <p>Company of One</p>
+                    </div>
+                    <div class="book-card" onclick="showDetails('The Picture of Dorian Gray', 'Oscar Wilde', '{{ url_for('static', filename='images/dorian.jpg') }}')">
+                        <img src="{{ url_for('static', filename='images/dorian.jpg') }}" alt="The Picture of Dorian Gray">
+                        <p>The Picture of Dorian Gray</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Book Details Panel -->
+        <div class="book-details" id="bookDetails">
+            <div class="book-details-content">
+                <span class="close-btn material-icons" onclick="hideDetails()">close</span>
+                <h2 id="bookTitle">Book Title</h2>
+                <img id="bookImage" src="" alt="Book Cover">
+                <p id="bookAuthor">Author: Unknown</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+</body>
+</html>
