@@ -86,6 +86,9 @@ library_management_system/
 ├── README.md           # Project documentation
 ```
 
+## Schema diagram of mongoDB
+![Schema Diagram](https://github.com/user-attachments/assets/2f1b80a9-e014-4c0b-8892-d3f9ffe152e8)
+
 ## Book highlighting feature
 TO use the highlighting feature, download blender and add the exe file to the environemental path and run:
 ```bash
