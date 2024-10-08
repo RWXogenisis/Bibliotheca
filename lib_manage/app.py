@@ -29,10 +29,10 @@ def send_email(to_email, otp):
     EMAIL_USE_SSL = True
     EMAIL_HOST = 'smtp.zoho.in'
     EMAIL_PORT = 465
-    EMAIL_HOST_USER = 'genisistesting@zohomail.in'  # Your Zoho email
-    EMAIL_HOST_PASSWORD = 'gentesting@123'  # Your Zoho password
-    DEFAULT_FROM_EMAIL = 'genisistesting@zohomail.in'  # Your Zoho email
-    SERVER_EMAIL = 'genisistesting@zohomail.in'  # Your Zoho email
+    EMAIL_HOST_USER = 'genisistesting@zohomail.in'  
+    EMAIL_HOST_PASSWORD = '' 
+    DEFAULT_FROM_EMAIL = 'genisistesting@zohomail.in' 
+    SERVER_EMAIL = 'genisistesting@zohomail.in'  
 
     # Email details
     subject = 'Your OTP Code'
