@@ -51,6 +51,9 @@ blender --python test3.py
 ```
 This command will open Blender and execute the `test3.py` script, generating a 3D visualization of the library shelves and books.
 
+https://github.com/user-attachments/assets/671bb843-2994-43a6-8e9a-a2dec78fd3fd
+
+
 ## Frontend Interaction
 The frontend allows users to:
 - **Log in** for an account.
@@ -88,6 +91,10 @@ library_management_system/
 
 ## Schema diagram of mongoDB
 ![Schema Diagram](https://github.com/user-attachments/assets/2f1b80a9-e014-4c0b-8892-d3f9ffe152e8)
+
+## Swimlane diagram for the application
+![swimlanes](https://github.com/user-attachments/assets/8a220b58-0b2a-489f-a86c-2e1507fe8203)
+
 
 ## Book highlighting feature
 TO use the highlighting feature, download blender and add the exe file to the environemental path and run:
