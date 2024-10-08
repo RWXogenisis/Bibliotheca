@@ -1,4 +1,4 @@
-# Library Management System
+# Bibliotheca-Library Management System
 
 This Library Management System (LMS) allows users to manage, search, and visualize books stored on shelves. The system includes a user-friendly front-end interface for interacting with the library, a backend powered by Flask for handling requests, and MongoDB for data storage. Additionally, it utilizes Blender to render a 3D visualization of the library's shelves and books.
 
